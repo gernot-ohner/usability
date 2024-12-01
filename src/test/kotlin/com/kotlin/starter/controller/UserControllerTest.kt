@@ -26,7 +26,7 @@ class UserControllerTest(
     @Test
     fun `should return all users`() {
         val users = listOf(User(1, "user1", "user1@example.com"), User(2, "user2", "user2@example.com"))
-        Mockito.`when`(userService.getAllUsers()).thenReturn(users)
+        Mockito.`when`(userService.getAllUsers(Mockito.any())).thenReturn(users)
 
         mockMvc
             .perform(MockMvcRequestBuilders.get("/v1/api/users"))
