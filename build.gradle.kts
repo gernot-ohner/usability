@@ -17,6 +17,15 @@ java {
     }
 }
 
+kotlin {
+    jvmToolchain {
+        languageVersion.set(JavaLanguageVersion.of(21))
+    }
+    compilerOptions {
+        freeCompilerArgs.addAll("-Xjsr305=strict")
+    }
+}
+
 repositories {
     mavenCentral()
 }
@@ -52,14 +61,6 @@ dependencies {
     implementation("javax.servlet:javax.servlet-api:4.0.1")
 }
 
-kotlin {
-    jvmToolchain {
-        languageVersion.set(JavaLanguageVersion.of(17))
-    }
-    compilerOptions {
-        freeCompilerArgs.addAll("-Xjsr305=strict")
-    }
-}
 
 tasks.withType<Test> {
     useJUnitPlatform()
